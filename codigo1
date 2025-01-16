@@ -1,1 +1,33 @@
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+public class CheckGround : MonoBehaviour
+{
+    private PlayerControl player;//llamamos al jugador
+                                    // Use this for initialization
+    void Start()
+    {
+        player = GetComponentInParent<PlayerControl>();
+
+        //llamamos a la componente padre script de movimiento del player
+    }
+    void OnCollisionStay2D(Collision2D col)
+    //detectamos la colision del tag Ground
+    
+    {
+
+        if (col.gameObject.tag == "Ground") ///!=     
+        {
+            player.grounded = true;//no salto
+        }
+    }
+    void OnCollisionExit2D(Collision2D col)
+    //detectamos la salida de la colision del tag Ground
+    {
+
+        if (col.gameObject.tag == "Ground")
+        {
+            player.grounded = false;//salto
+        }
+    }
+}
