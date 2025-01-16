@@ -25,9 +25,4 @@ public class CheckGround : MonoBehaviour
     //detectamos la salida de la colision del tag Ground
     {
 
-        if (col.gameObject.tag == "Ground")
-        {
-            player.grounded = false;//salto
-        }
-    }
-}
+   
